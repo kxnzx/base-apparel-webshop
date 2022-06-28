@@ -1,0 +1,282 @@
+// GOOGLE FONTS
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap");
+// VARIABLES
+// Colors
+// primary colors
+$desaturated_red: hsl(0, 36%, 70%);
+$soft_red: hsl(0, 93%, 68%);
+// neutral colors
+$dark_grayish_red: hsl(0, 6%, 24%);
+// Gradients
+$gradient_1: 135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%);
+$gradient_2: 135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%);
+// Typography
+// font-family
+$ff: "Josefin Sans", sans-serif;
+// font-weight
+$fw_light: 300;
+$fw_regular: 400;
+$fw_semiBold: 600;
+// font-size
+$body_copy: 1rem;
+// Breakpoints
+$mobile: 640px;
+$tablet: 768px;
+$xl_tablet: 960px;
+$desktop: 1024px;
+// RESET
+html {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+}
+// STYLES (Mobile First)
+body {
+  font-family: $ff;
+  color: $desaturated_red;
+  background: linear-gradient($gradient_1);
+  @media only screen and (min-width: $desktop) {
+    background-image: url(../images/bg-pattern-desktop.svg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: left bottom;
+    background-size: 61.25rem auto;
+  }
+}
+
+.container {
+  max-width: 23.438rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  justify-items: center;
+  grid-template-areas:
+    "header"
+    "hero"
+    "main"
+    "footer";
+  @media only screen and (min-width: $desktop) {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "header hero"
+      "main hero"
+      "footer hero";
+  }
+}
+
+header {
+  grid-area: header;
+  width: 100%;
+  padding: 1.875rem 0 1.875rem 1.875rem;
+  @media only screen and (min-width: $desktop) {
+    padding: 0;
+    margin-top: 3.75rem;
+    margin-bottom: 8.75rem;
+  }
+  img {
+    display: block;
+    width: 6.25rem;
+    @media only screen and (min-width: $desktop) {
+      width: 10rem;
+      margin-left: 10rem;
+    }
+  }
+}
+
+.hero {
+  grid-area: hero;
+  background-image: url(../images/hero-mobile.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 23.438rem;
+  height: 15.625rem;
+  @media only screen and (min-width: $desktop) {
+    background-image: url(../images/hero-desktop.jpg);
+    background-size: cover;
+    width: 38.125rem;
+    height: 100vh;
+  }
+}
+
+main {
+  grid-area: main;
+  text-align: center;
+  @media only screen and (min-width: $desktop) {
+    text-align: left;
+    width: 100%;
+  }
+}
+
+h1 {
+  padding: 4.063rem 0 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  font-weight: $fw_light;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  span {
+    font-weight: $fw_semiBold;
+    color: $dark_grayish_red;
+  }
+  @media only screen and (min-width: $desktop) {
+    font-size: 3.5rem;
+    padding: 0;
+    margin-bottom: 1.25rem;
+    margin-left: 10rem;
+  }
+}
+
+.text_content {
+  max-width: 19rem;
+  line-height: 1.5;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  font-size: 0.875rem;
+  @media only screen and (min-width: $desktop) {
+    font-size: $body_copy;
+    max-width: 27rem;
+    margin-left: 10rem;
+    margin-right: 0;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+}
+
+form {
+  max-width: 20rem;
+  width: 100%;
+  position: relative;
+  @media only screen and (min-width: $desktop) {
+    max-width: 28.125rem;
+    margin-left: 10rem;
+  }
+}
+
+// Remove border fieldset
+fieldset {
+  border: none;
+}
+
+// Make label visually hidden
+label {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 0.063rem;
+  margin: -0.063rem;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+input {
+  font-family: $ff;
+  color: $desaturated_red;
+  background-color: transparent;
+  border: $desaturated_red 1px solid;
+  border-radius: 30px;
+  padding: 0.938rem 1.563rem;
+  width: 100%;
+  height: 3.125rem;
+  margin-bottom: 0.525rem;
+  @media only screen and (min-width: $desktop) {
+    height: 3.5rem;
+    font-size: $body_copy;
+  }
+}
+
+input:focus {
+  outline: none;
+}
+
+input::placeholder {
+  color: $desaturated_red;
+}
+
+form.error input {
+  border: $soft_red 2px solid;
+  color: $dark_grayish_red;
+}
+
+button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 4rem;
+  height: 3.125rem;
+  padding: 0.938rem;
+  border-radius: 25px;
+  background: linear-gradient($gradient_2);
+  box-shadow: 0 10px 20px rgba($desaturated_red, 0.8);
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  &:hover {
+    opacity: 0.6;
+  }
+  @media only screen and (min-width: $desktop) {
+    width: 6.25rem;
+    height: 3.5rem;
+  }
+}
+
+.error_icon {
+  position: absolute;
+  top: 0.781rem;
+  right: 4.688rem;
+  display: none;
+  @media only screen and (min-width: $desktop) {
+    right: 7.5rem;
+    top: 0.938rem;
+  }
+}
+
+form.error .error_icon,
+form.error .error_message {
+  display: block;
+}
+
+.error_message {
+  margin-left: -2.625rem;
+  color: $soft_red;
+  display: none;
+  @media only screen and (min-width: $desktop) {
+    margin-left: 1.719rem;
+  }
+}
+
+footer {
+  grid-area: footer;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  a {
+    color: $dark_grayish_red;
+  }
+  @media only screen and (min-width: $desktop) {
+    display: flex;
+    justify-content: left;
+    .attribution {
+      margin-left: 16.25rem;
+    }
+  }
+}

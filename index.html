@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="stylesheet/style.css" />
+
+    <title>Frontend Mentor | Base Apparel coming soon page</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <img src="images/logo.svg" alt="Base Apparel Logo" />
+      </header>
+      <div class="hero"></div>
+      <main>
+        <h1 id="title">
+          We're <br /><span>coming<br />soon</span>
+        </h1>
+        <p class="text_content" id="description">
+          Hello fellow shoppers! We're currently building our new fashion store.
+          Add your email below to stay up-to-date with announcements and our
+          launch deals.
+        </p>
+        <!-- EMAIL FORM -->
+        <form id="form" novalidate>
+          <!-- Included fieldset to be semantically correct, h1 & p are related via aria -->
+          <fieldset aria-labelledby="title" aria-describedby="description">
+            <!-- Label is included for assistive technologies such as screenreaders, but is made visually invisible in CSS -->
+            <label for="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="Email Address"
+            />
+            <!-- Error Icon -->
+            <img class="error_icon" src="images/icon-error.svg" alt="" />
+            <!-- Submit Button -->
+            <button id="button" type="submit">
+              <img src="images/icon-arrow.svg" alt="" />
+            </button>
+            <!-- Error Message: the content is not announced to screen readers with help of aria-hidden="true" -->
+            <small
+              class="error_message"
+              role="alert"
+              id="error"
+              aria-hidden="true"
+            >
+            </small>
+          </fieldset>
+        </form>
+      </main>
+    </div>
+
+    <footer>
+      <p class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://www.frontendmentor.io/profile/kxnzx" target="_blank"
+          >kxnzx</a
+        >.
+      </p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
